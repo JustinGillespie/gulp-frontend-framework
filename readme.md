@@ -5,6 +5,18 @@ Gulp Frontend Framework
 This is under active development.
 
 
+Getting Started
+------------
+Make a fresh build when you first install:
+    gulp build
+
+Run the default command to launch server and track all the development files
+    gulp
+
+
+
+
+
 Using Gulp
 ==========
 
