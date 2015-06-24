@@ -1,34 +1,15 @@
 
-@import "bourbon";
-@import "neat";
-@import "base/normalize";
-@import "base/mixins";
+//@import "bourbon";
+//@import "neat";
+//@import "base/mixins";
 @import "base/helpers";
+@import "base/base";
+// @import "components/";
+// @import "pages/";
 
 // ---------------------
 
 $container: 900px;
-$red: #666;
+$red: lighten(red, 30%);
 
 // ---------------------
-
-
-
-body { 
-	background: white;
-}
-
-section {
-  @include outer-container($container);
-  aside { @include span-columns(3); }
-  article { @include span-columns(9); }
-}
-
-h1 {
-	@include border-radius(5px);
-	font-size: 85px;
-}
-
-h2 {
-	font-size: 14px;
-}

@@ -1,27 +1,26 @@
-// Avoid `console` errors in browsers that lack a console.
-(function() {
-    var method;
-    var noop = function () {};
-    var methods = [
-        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-        'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
-    ];
-    var length = methods.length;
-    var console = (window.console = window.console || {});
+// jQuery
+var $ = require('jquery');
 
-    while (length--) {
-        method = methods[length];
-
-        // Only stub undefined methods.
-        if (!console[method]) {
-            console[method] = noop;
-        }
-    }
-}());
-
-// Place any jQuery/helper plugins in here.
+// Routing
+var router  = require('./components/router.js');
+var routes = require('./routes');
+router.init(routes);
 
 
-$(document).ready(function() {});
+
+// Storage
+var storage = require('./components/localstorage.js');
+
+// Create links that trigger the router.
+
+$(document).ready( function() {
+
+	$("[data-link]").on('click', function(e) {
+		var href = $(this).data('link') || $(this).attr('href');
+
+		if(e.target.nodeName.toLowerCase() === 'a') e.preventDefault();
+		router.go(href);
+	});
+});
+
+
